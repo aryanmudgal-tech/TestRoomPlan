@@ -122,14 +122,83 @@ The floor plan is drawn in `FloorPlanView` using `Canvas`:
 - Uniform scaling keeps proportions accurate.
 - A fixed 1m scale bar helps visual sanity checks.
 
-## How To Run
+## Run On iPhone (Step-by-Step From Clone)
 
-1. Open `TestRoomPlan.xcodeproj` in Xcode.
-2. Select a physical LiDAR-capable device (RoomPlan does not run meaningfully in simulator).
-3. Build and run.
-4. Grant camera access when prompted.
-5. Tap Start Room Scan.
-6. Walk around the room slowly until capture is complete.
+Use these steps if you are starting from scratch on a Mac.
+
+### 1) Clone the repository
+
+1. Open Terminal.
+2. Run:
+
+```bash
+git clone https://github.com/aryanmudgal-tech/TestRoomPlan.git
+cd TestRoomPlan
+```
+
+### 2) Open the project in Xcode
+
+1. Double-click `TestRoomPlan.xcodeproj`.
+2. Wait for Xcode indexing to finish.
+
+### 3) Connect your iPhone
+
+1. Connect iPhone to Mac with USB (or wireless debugging if already configured).
+2. Unlock the phone and tap **Trust This Computer** if prompted.
+
+### 4) Confirm device compatibility
+
+1. RoomPlan requires a LiDAR-capable device.
+2. Use an iPhone Pro model with LiDAR (or compatible iPad Pro).
+3. Do not use the simulator for real RoomPlan testing.
+
+### 5) Configure signing (required)
+
+1. In Xcode, select the blue project icon in navigator.
+2. Select the `TestRoomPlan` target.
+3. Open **Signing & Capabilities**.
+4. Check **Automatically manage signing**.
+5. Choose your Apple Developer Team from the **Team** dropdown.
+6. If bundle ID conflicts, change it to a unique value (for example: `com.yourname.TestRoomPlan`).
+
+### 6) Select your run destination
+
+1. In the Xcode top bar, open the device/simulator selector.
+2. Choose your connected iPhone.
+
+### 7) Build and run
+
+1. Press Run (play button) or `Cmd + R`.
+2. If this is your first local build, Xcode may take extra time.
+
+### 8) If iOS blocks launch (first-time developer app)
+
+If you see an untrusted developer message on the phone:
+
+1. On iPhone, go to **Settings > Privacy & Security**.
+2. Enable **Developer Mode** (if shown), then restart when asked.
+3. Go to **Settings > General > VPN & Device Management**.
+4. Trust your developer certificate/profile.
+5. Run again from Xcode.
+
+### 9) Grant camera access
+
+1. On first launch, allow Camera permission.
+2. This is required for RoomPlan capture.
+
+### 10) Perform a scan
+
+1. Tap **Start Room Scan**.
+2. Begin near the doorway if you want consistent origin alignment.
+3. Move slowly and capture the full room perimeter.
+
+### 11) View and export results
+
+1. Open **Floor Plan** tab for 2D visualization.
+2. Open **Report** tab for dimensions, counts, and object distances.
+3. Tap Share icon to export:
+- JSON file (`roomplan_scan_yyyyMMdd_HHmmss.json`)
+- Floor plan image
 
 ## Accuracy Testing Tips
 
