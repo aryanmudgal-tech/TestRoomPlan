@@ -238,13 +238,18 @@ enum RoomExporter {
         @unknown default:   return "Unknown"
         }
     }
-
-    static func confidenceName(_ confidence: CapturedRoom.Object.Confidence) -> String {
+    
+    static func confidenceName(_ confidence: CapturedRoom.Confidence) -> String {
         switch confidence {
-        case .low:    return "Low"
-        case .medium: return "Medium"
-        case .high:   return "High"
-        @unknown default: return "Unknown"
+        case .low:
+            return "Low"
+        case .medium:
+            return "Medium"
+        case .high:
+            return "High"
+        @unknown default:
+            return "Unknown"
         }
     }
+
 }
